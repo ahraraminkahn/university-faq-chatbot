@@ -1,0 +1,43 @@
+
+[
+  {
+    "question": "How can I apply for university admission?",
+    "answer": "Visit the university admissions portal, complete the online application form, and submit the required documents."
+  },
+  {
+    "question": "What is the admission deadline?",
+    "answer": "Admission deadlines vary by program and semester. Please check the official university admissions notice for the current deadline."
+  },
+  {
+    "question": "What documents are required for admission?",
+    "answer": "Commonly required documents include academic transcripts, certificates, a CNIC or B-Form, photographs, and any program-specific documents."
+  },
+  {
+    "question": "How can I pay my semester fee?",
+    "answer": "Follow the payment instructions on your official fee challan or student portal."
+  },
+  {
+    "question": "Are scholarships available?",
+    "answer": "Scholarships may be available based on merit, financial need, or eligibility criteria. Contact the financial aid office for current opportunities."
+  },
+  {
+    "question": "Which departments are available?",
+    "answer": "Please visit the official university website or prospectus for the current list of departments and degree programs."
+  },
+  {
+    "question": "When do examinations take place?",
+    "answer": "Examination dates are announced through the official examination branch and university notices."
+  },
+  {
+    "question": "How can I get my transcript?",
+    "answer": "Contact the examination branch or student affairs office and follow the official transcript application procedure."
+  },
+  {
+    "question": "What are the university office timings?",
+    "answer": "Office timings may vary by department and working day. Please confirm the current schedule with the relevant office."
+  },
+  {
+    "question": "How do I contact the university?",
+    "answer": "Use the contact details published on the official university website to reach the relevant department."
+  }
+]
