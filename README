@@ -1,0 +1,96 @@
+University FAQ Chatbot
+
+A simple FAQ chatbot built with Flask and scikit-learn. It matches a user's question to the most similar question in a FAQ list using TF-IDF and cosine similarity, then returns the stored answer. If nothing is similar enough, it politely points the user to the relevant department.
+
+Features
+Answers questions by matching them to a list of FAQs in faqs.json
+TF-IDF with unigrams and bigrams for better phrase matching
+Adjustable similarity threshold to control how strict matching is
+Input validation (valid JSON, non-empty question, max 500 characters)
+Simple JSON API plus a web page for chatting
+Tech Stack
+Python 3
+Flask
+scikit-learn
+Project Structure
+.
+├── app1.py          # Flask app and matching logic
+├── faqs.json        # FAQ questions and answers
+├── template/
+│   └── index.html   # Chat page
+└── requirements.txt
+Getting Started
+Clone the repository
+bash
+   git clone <your-repo-url>
+   cd <your-repo-folder>
+Create a virtual environment (optional but recommended)
+bash
+   python -m venv venv
+   source venv/bin/activate    # On Windows: venv\Scripts\activate
+Install dependencies
+bash
+   pip install flask scikit-learn
+Run the app
+bash
+   python app1.py
+Open http://127.0.0.1:5000 in your browser.
+FAQ Data Format
+
+Add or edit entries in faqs.json. It must be a non-empty list, and every item needs a non-empty question and answer:
+
+json
+[
+  {
+    "question": "How do I apply for admission?",
+    "answer": "You can apply online through the university admissions portal."
+  },
+  {
+    "question": "When is the fee submission deadline?",
+    "answer": "Please check the academic calendar for the current deadline."
+  }
+]
+
+Restart the app after changing faqs.json.
+
+API
+POST /chat
+
+Request
+
+json
+{ "question": "How can I apply for admission?" }
+
+Response
+
+json
+{
+  "answer": "You can apply online through the university admissions portal.",
+  "matched_question": "How do I apply for admission?",
+  "similarity": 0.62,
+  "matched": true
+}
+
+If no FAQ is similar enough, matched is false, matched_question is null, and a fallback message is returned.
+
+Errors return HTTP 400 with an error message (invalid JSON, empty question, or question longer than 500 characters).
+
+Configuration
+
+The matching strictness is controlled by SIMILARITY_THRESHOLD in app1.py (default 0.25).
+
+Raise it for fewer, more accurate matches
+Lower it to answer more questions, with a higher chance of wrong matches
+
+Test with real student questions to find a good value.
+
+How It Works
+All FAQ questions are converted into TF-IDF vectors at startup.
+The user's question is transformed with the same vectorizer.
+Cosine similarity is calculated against every FAQ question.
+The best match is returned if its score meets the threshold; otherwise a fallback message is shown.
+Possible Improvements
+Add more FAQs and alternative phrasings for each question
+Use sentence embeddings for better semantic matching
+Add tests for the matching logic
+Deploy with a production server such as Gunicorn
